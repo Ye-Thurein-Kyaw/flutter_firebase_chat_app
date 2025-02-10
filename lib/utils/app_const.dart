@@ -5,7 +5,7 @@ import 'package:get_storage/get_storage.dart';
 final box = GetStorage();
 
 class Spf {
-  static const token = "token";
+  static const loginUserId = "loginUserID";
   static const saveLogin = "saveLogin";
   static const email = "email";
   static const password = 'password';
