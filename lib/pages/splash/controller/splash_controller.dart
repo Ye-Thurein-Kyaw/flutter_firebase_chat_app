@@ -2,6 +2,7 @@ import 'dart:developer';
 import 'package:get/get.dart';
 import '../../../utils/app_const.dart';
 import '../../auth/view/login.dart';
+import '../../home_page/view/home_page_view.dart';
 
 class SplashController extends GetxController {
   @override
@@ -11,11 +12,13 @@ class SplashController extends GetxController {
   }
 
   isLoggedIn() async {
-    String? token = box.read(Spf.token);
-    log("token : $token");
+    String? loginUserID = box.read(Spf.loginUserId);
+    log("loginUserId : $loginUserID");
     await Future.delayed(const Duration(seconds: 2));
-    Get.toNamed(Login.route);
-    if (token == null) {
-    } else {}
+    if (loginUserID == null) {
+      Get.offAllNamed(Login.route);
+    } else {
+      Get.offAllNamed(HomePage.route);
+    }
   }
 }
